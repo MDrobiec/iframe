@@ -2,32 +2,20 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Zobacz w sklepie</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; }
-    a.button {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-  </style>
-</head>
-<body>
-  <h2>Link do produktu w sklepie</h2>
-  <p><strong>SKU:</strong> <span id="sku">...</span></p>
-  <a id="shop-link" class="button" href="#" target="_blank">Zobacz w sklepie</a>
-
+  <title>Przekierowanie do sklepu</title>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const sku = params.get('sku') || 'brak';
-    const link = `https://8a.pl/catalogsearch/result/?q=${encodeURIComponent(sku)}`;
-
-    document.getElementById('sku').textContent = sku;
-    document.getElementById('shop-link').href = link;
+    const sku = params.get('sku');
+    if (sku) {
+      const url = `https://8a.pl/catalogsearch/result/?q=${encodeURIComponent(sku)}`;
+      window.location.href = url;
+    } else {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.innerHTML = "<h2>Brak parametru SKU w URL.</h2>";
+      });
+    }
   </script>
+</head>
+<body>
 </body>
 </html>
