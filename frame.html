@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zobacz w Magento</title>
+    <style>
+      body { font-family: sans-serif; padding: 2rem; }
+      a.button {
+        display: inline-block;
+        padding: 10px 16px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Przejdź do Magento</h2>
+    <p><strong>SKU produktu:</strong> <span id="sku">...</span></p>
+    <a id="link" class="button" href="#" target="_blank" rel="noopener noreferrer">
+      🔍 Otwórz produkt w 8a.pl
+    </a>
+
+    <script>
+      const sku = window?.pim?.context?.data?.meta?.identifier || 'brak';
+      const link = `https://8a.pl/catalogsearch/result/?q=${encodeURIComponent(sku)}`;
+      document.getElementById("sku").textContent = sku;
+      document.getElementById("link").href = link;
+    </script>
+  </body>
+</html>
