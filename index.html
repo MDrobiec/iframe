@@ -29,8 +29,11 @@
   <div id="output">Oczekiwanie na dane z Akeneo...</div>
 
   <script>
-    window.addEventListener("message", (event) => {
-      console.log(event);
+  window.addEventListener("message", (event) => {
+  console.log("[DEBUG] event.data:", event.data);
+  document.getElementById("output").innerText = JSON.stringify(event.data, null, 2);
+});
+
       const payload = event.data;
 
       // Sprawdź, czy dane przyszły w odpowiednim formacie
