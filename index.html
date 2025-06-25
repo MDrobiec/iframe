@@ -34,19 +34,7 @@
   document.getElementById("output").innerText = JSON.stringify(event.data, null, 2);
 });
 
-      const payload = event.data;
-
-      // Sprawdź, czy dane przyszły w odpowiednim formacie
-      if (payload?.type === "ui-extension:context" && payload?.data?.codes) {
-        const codes = payload.data.codes;
-        const list = codes.map(code => `<li>${code}</li>`).join("");
-        document.getElementById("output").innerHTML = `
-          <ul>${list}</ul>
-        `;
-      } else {
-        document.getElementById("output").innerText = "Nie otrzymano poprawnych danych.";
-      }
-    });
+  
   </script>
 </body>
 </html>
