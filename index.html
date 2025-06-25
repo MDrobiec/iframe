@@ -2,20 +2,10 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Przekierowanie do sklepu</title>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const sku = params.get('sku');
-    if (sku) {
-      const url = `https://8a.pl/catalogsearch/result/?q=${encodeURIComponent(sku)}`;
-      window.location.href = url;
-    } else {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.innerHTML = "<h2>Brak parametru SKU w URL.</h2>";
-      });
-    }
-  </script>
+  <title>Stan Magazynowy</title>
+  
 </head>
 <body>
+  <p>Stan: 1</p>
 </body>
 </html>
